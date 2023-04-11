@@ -4,10 +4,10 @@ public class User {
     private Long id;
     private String name;
     private String email;
-
+    
     public User() {
     }
-
+    
     public User(String name, String email) {
         this.name = name;
         this.email = email;
@@ -18,7 +18,7 @@ public class User {
         this.name = name;
         this.email = email;
     }
-
+    
     public Long getId() {
         return id;
     }
