@@ -12,12 +12,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/media-type")
 public class MediaTypeController {
-
+    
+    @PostMapping(path = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity createUser(@RequestBody User user) {
         Long id = 1L;
         return ResponseEntity.created(URI.create("/users/" + id)).build();
     }
-
+    
+    @GetMapping(path = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<User>> showUser() {
         List<User> users = Arrays.asList(
                 new User("이름", "email"),
@@ -25,7 +27,8 @@ public class MediaTypeController {
         );
         return ResponseEntity.ok().body(users);
     }
-
+    
+    @GetMapping(path = "/users", produces = MediaType.TEXT_HTML_VALUE)
     public String userPage() {
         return "user page";
     }
